@@ -7,7 +7,9 @@ const helper = (oldState, newAttributes) =>
 const reducer = (
   state = {
     selected: undefined,
-    questions: questions.map((question, i) => helper(question, { id: i }))
+    questions: questions.map((question, i) =>
+      helper({ text: question }, { id: i })
+    )
   },
   action
 ) => {
