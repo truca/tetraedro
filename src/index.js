@@ -11,4 +11,4 @@ const ProviderApp = () => (
   </Provider>
 );
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<ProviderApp />, document.getElementById("root"));
