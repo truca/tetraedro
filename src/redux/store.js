@@ -1,3 +1,4 @@
-import { createStore } from "redux";
+import { createStore, combineReducers } from "redux";
+import reducer from "./reducers";
 
-export default createStore((state, action) => state);
+export default createStore(reducer);
