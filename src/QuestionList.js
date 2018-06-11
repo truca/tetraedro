@@ -1,13 +1,20 @@
 import React, { Component } from "react";
-
-import questions from "./questions";
+import { connect } from "react-redux";
 
 class QuestionList extends Component {
   render() {
+    const { questions, selected } = this.props;
     return (
       <ul className="questionList">
         {questions.map((question, idx) => (
-          <li className="questionItem selected" key={question + idx}>
+          <li
+            className={
+              selected === question.id
+                ? "questionItem"
+                : "questionItem selected"
+            }
+            key={question + idx}
+          >
             <div className="questionNumber">{idx + 1}</div>
             <div className="questionText">{question}</div>
           </li>
@@ -17,4 +24,7 @@ class QuestionList extends Component {
   }
 }
 
-export default QuestionList;
+export default connect(state => ({
+  questions: state.questions,
+  selected: state.id
+}))(QuestionList);
