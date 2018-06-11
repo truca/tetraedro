@@ -9,14 +9,14 @@ class QuestionList extends Component {
         {questions.map((question, idx) => (
           <li
             className={
-              selected === question.id
-                ? "questionItem"
-                : "questionItem selected"
+              selected && selected === question.id
+                ? "questionItem selected"
+                : "questionItem"
             }
             key={question + idx}
           >
             <div className="questionNumber">{idx + 1}</div>
-            <div className="questionText">{question}</div>
+            <div className="questionText">{question.text}</div>
           </li>
         ))}
       </ul>
